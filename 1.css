@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+#demo {
+    display: block;
+    width: 323px;
+    height: 430px;
+    margin: 5px;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+#small-box {
+    position: relative;
+    z-index: 1;
+}
+
+#float-box {
+    display: none;
+    width: 160px;
+    height: 120px;
+    position: absolute;
+    /*使元素脱离文档流,方便自由操控元素*/
+    background: #ffffcc;
+    border: 1px solid #ccc;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+#mark {
+    /*应该是把图片放在这个上面，它的透明度为0，是个block*/
+    position: absolute;
+    /*元素脱离文档流，使得图片和浮动框可与之重叠，也正因如此，要↓*/
+    display: block;
+    width: 323px;
+    height: 430px;
+    background-color: #fff;
+    filter: alpha(opacity=0);
+    /*过滤器，目前只有少数浏览器支持*/
+    opacity: 0;
+    z-index: 10;
+    /*确保markBox位于floatBox和图片之上，防止markBox被覆盖，导致对markBox的鼠标移动事件不起作用*/
+}
+
+#big-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 330px;
+    width: 400px;
+    height: 430px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+#big-box img {
+    position: absolute;
+    z-index: 5
+}
+
+#ssmall-box {
+    width: 40px;
+    height: 40px;
+}
